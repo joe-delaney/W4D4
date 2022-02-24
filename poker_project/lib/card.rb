@@ -11,5 +11,13 @@ class Card
     @suit = suit
   end
 
-
+  def compare_card(other_card)
+      this_card_value = VALID_SYMBOLS.index(symbol)
+      other_card_value = VALID_SYMBOLS.index(other_card.symbol)
+      if this_card_value >= other_card_value
+        return self
+      else
+        return other_card
+      end
+  end
 end
