@@ -2,7 +2,7 @@ require "card"
 
 describe Card do 
   subject(:card) {Card.new(:'10',:heart)} 
-
+  let(:card2) {Card.new(:'9', :heart)}
   describe '#initialize' do 
     context "with valid arguments" do
       it "instantiates a card correctly" do
@@ -19,4 +19,13 @@ describe Card do
       end
     end
   end
+
+  describe '#compare_card' do
+    it "returns self when self is greater than other card" do
+      expect(card.compare_card(card2)).to eq(card)
+    end
+    it "returns other card when self is less than other card" do
+      expect(card2.compare_card(card)).to eq(card)
+    end
+  end 
 end
